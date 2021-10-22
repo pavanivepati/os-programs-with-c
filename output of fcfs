@@ -1,0 +1,20 @@
+enter the number of processes:5
+
+ enter the arrival time of the processes2
+0
+2
+3
+4
+
+ enter the service times of the processes2
+1
+3
+5
+4
+process AT      ST      STR     FT      TAT     WT
+p-1673070032    -1673045696     6480448 1       4204521 0       32
+p-1673070032    -1673045696     6480432 1       4204521 0       32
+p-1673070032    -1673045696     6480432 1       4204521 0       32
+p-1673070032    -1673045696     6480432 1       4204521 0       32
+p-1673070032    -1673045696     6480432 1       4204521 0       32
+Average turn around time=7.200000Average waiting time=4.200000
