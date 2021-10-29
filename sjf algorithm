@@ -1,0 +1,33 @@
+What is Shortest Job First?
+This is an approach which considers the next CPU burst. 
+Each process posses its next CPU burst. 
+When CPU is available, the process having the smallest next CPU burst is allocated CPU.
+
+Now it may happen that two or more processes have the same next CPU burst.
+Then which process to allocate will be decided as per FCFS scheduling.
+
+Advantages:
+This algorithm is simple to implement.
+
+Does not depend on any priority of the process. 
+The smallest burst time is the higher priority consideration.
+
+It provides good CPU utilization than FCFS (First Come First Search).
+
+Waiting time and turn around time of each process is reduced, reducing the average waiting time and turn around the time of the system as compared to FCFS.
+
+Disadvantages:
+Waiting time of some processes still high due to the long burst time of the processes, in case of non-preemptive scheduling.
+
+In the case of non-preemptive scheduling, it may act as a uni-processing operating system.
+
+In the case of preemptive scheduling, context switch is required.
+
+And in preemptive scheduling, turn around time may get increased.
+
+There are two schemes with this type of scheduling:
+
+Non-preemptive: Once the CPU is allocated to a process, it can not be preempted until it completes its CPU burst.
+
+Preemptive: If a new process arrives with CPU burst length less than remaining time of current execution process, preempt the current process. 
+This scheme is known as Shortest-Remaining-Time-First (SRTF).
