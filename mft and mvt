@@ -1,0 +1,121 @@
+MFT:
+#include<stdio.h>
+#include<math.h>
+main()
+{
+	int i,np,nb,mm,bs,ps[100],nba[100],ifm[100],num,sb=0,flag=0,j;
+	float x;
+	printf("Enter the memory size");
+	scanf("%d",&mm);
+	printf("Enter the no.of Blocks");
+	scanf("%d",&nb);
+	printf("Enter tne no.of processes");
+	scanf("%d",&np);
+	bs=mm/nb;
+	for(i=1;i<=np && (sb<nb) ;i++)
+	{
+		printf("Entr the size of p[%d]:",i);
+		scanf("%d",&ps[i]);
+		if(ps[i]<=bs)
+		{
+			nba[i]=1;
+		}
+		else
+		{
+			x=ps[i]/(float)bs;
+			nba[i]=(ceil)(x);
+		}
+		ifm[i]=nba[i]*bs-ps[i];
+		sb=sb+nba[i];
+		if(sb>nb)
+		{
+			i=i-1;
+			flag=1;
+		}
+	}
+	j=i;
+	printf("process\tSize\tnba\tifm\n");
+	for(i=1;i<j;i++)
+	{
+		printf("%d\t%d\t%d\t%d\n",i,ps[i],nba[i],ifm[i]);
+	}
+	if(flag==1)
+	printf("Memory space is unavailable");
+}
+
+
+
+
+OUTPUT:
+
+
+Enter the memory size800
+Enter the no.of Blocks8
+Enter tne no.of processes
+4
+Entr the size of p[1]:50
+Entr the size of p[2]:150
+Entr the size of p[3]:200
+Entr the size of p[4]:250
+process Size    nba     ifm
+1       50      1       50
+2       150     2       50
+3       200     2       0
+4       250     3       50
+
+--------------------------------
+Process exited after 37.64 seconds with return value 5
+Press any key to continue . . .
+
+MVT:
+
+#include<stdio.h>
+main()
+{
+	int mm,np,ps[100],rm[100],am=0,flag=0,i,j;
+	printf("Enter the memory size");
+	scanf("%d",&mm);
+	printf("enter no ofprocesses");
+	scanf("%d",&np);
+	for(i=0;(i<np)&&(am<mm);i++)
+	{
+		printf("enter the size of p[%d]:",i+1);
+		scanf("%d",&ps[i]);
+		am=am+ps[i];
+		if(am>=mm)
+		{
+			flag=1;
+			break;
+		}
+		rm[i]=mm-am;
+	}
+	j=i;
+	printf("process\tsize\ttrm\n");
+	for(i=0;i<j;i++)
+	printf("%d\t%d\t%d\n",i+1,ps[i],rm[i]);
+	if(flag==1)
+	printf("memory is unavailable");
+}
+
+
+OUTPUT:
+Enter the memory size800
+enter no ofprocesses4
+enter the size of p[1]:50
+enter the size of p[2]:100
+enter the size of p[3]:150
+enter the size of p[4]:200
+process size    trm
+1       50      750
+2       100     650
+3       150     500
+4       200     300
+
+--------------------------------
+Process exited after 23.07 seconds with return value 4
+Press any key to continue . . .
+
+
+
+
+
